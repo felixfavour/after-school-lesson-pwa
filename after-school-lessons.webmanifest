@@ -1,6 +1,6 @@
 {
   "name": "After School Lessons",
-  "short_name": "asl",
+  "short_name": "AfterSchool",
   "description": "Progressive web app to see some lessons for your kids after school.",
   "icons": [
     { "src":  "images/icon512.png", "sizes": "512x512", "type": "image/png" },
