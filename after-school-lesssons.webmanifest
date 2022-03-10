@@ -1,0 +1,10 @@
+{
+  "name": "After School Lessons",
+  "short_name": "asl",
+  "icons": [
+    { "src":  "icon.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "background_color": "#00b3ff"
+}
