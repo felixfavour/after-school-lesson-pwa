@@ -34,8 +34,10 @@ self.addEventListener('fetch', function (e) {
     // Download the file if it is not in the cache
     return r || fetch(e.request).then(function (response) {
       // add the new file to cache
-      cache.put(e.request, response.clone())
-      return response;
+      return caches.open(cacheName).then(function (cache) {
+        cache.put(e.request, response.clone())
+        return response;
+      })
     })
   }))
 })
