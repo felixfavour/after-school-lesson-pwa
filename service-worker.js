@@ -1,4 +1,4 @@
-const cacheName = 'petstore-v1'
+const cacheName = 'after-school-lesson-v1'
 const cacheFiles = [
   'index.html',
   'after-school-lessons.webmanifest',
@@ -25,5 +25,17 @@ self.addEventListener('install', (e) => {
   e.waitUntil (caches.open(cacheName).then((cache) => {
     console.log('[Service Worker] Caching all files')
     return cache.addAll(cacheFiles)
+  }))
+})
+
+// CACHING NEW FILES
+self.addEventListener('fetch', function (e) {
+  e.respondWith(caches.match(e.request).then(function (r) {
+    // Download the file if it is not in the cache
+    return r || fetch(e.request).then(function (response) {
+      // add the new file to cache
+      cache.put(e.request, response.clone())
+      return response;
+    })
   }))
 })
